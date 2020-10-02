@@ -1,0 +1,120 @@
+@import url(https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+
+:root {
+	--Red: #F92672;
+	--Blue: #66D9EF;
+	--Grey: #75715E;
+	--Black: #272822;
+	--White: #F8F8F2;
+	--Green: #A6E22E;
+	--Purple: #AE81FF;
+	--Orange: #FD971F;
+	--Yellow: #E6DB74;
+	--LightOrange: #E69F66;
+
+	--DarkBlue: #4a9dad;
+	--DarkPurple: #7f5ebd;
+}
+
+.btn {
+	color: var(--White);
+	background: var(--Purple);
+	border: none;
+	padding: 10px;
+}
+.btn:hover {
+	background: var(--DarkPurple);
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+	color: var(--White);
+	font-family: Exo;
+	padding: 0px;
+}
+
+.app-bg {
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+	background: var(--Black);
+}
+
+.titlebar {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 33px;
+	background: var(--Black);
+}
+
+.titlebar-drag {
+	position: absolute;
+	top: 0; left: 0;
+	width: calc(100% - 115px); height: 33px;
+	-webkit-app-region: drag;
+}
+
+.title-btn {
+	position: absolute;
+	font-size: 14px;
+	background: none;
+	border: none;
+	color: var(--White);
+	width: 32px;
+	cursor: pointer;
+}
+
+.title-btn.mini { top: 5px; right: 38px; }
+.title-btn.close { top: 6px; right: 8px; }
+.title-btn.discord { top: 3px; right: 74px; }
+.discord-btn { fill: var(--White); }
+
+.title-btn.mini:hover { color: var(--LightOrange); }
+.title-btn.close:hover { color: var(--Red); }
+.title-btn.discord:hover .discord-btn { fill: var(--Purple); }
+
+.title-icon {
+	position: absolute;
+	top: 6px; left: 10px;
+	width: 18px;
+}
+
+.app-title {
+	position: absolute;
+	top: 5px; left: 35px;
+	color: var(--White);
+	font-weight: 700;
+}
+
+.app-container {
+	position: absolute;
+	top: 33px; left: 0px;
+	width: 100%; height: calc(100% - 20px);
+	overflow: hidden;
+}
+
+.info-section {
+	padding: 20px 60px 0px;
+}
+
+#current-version {
+	position: absolute;
+	bottom: 3px; right: 10px;
+	color: var(--Grey);
+}
+
+.client-status {
+	position: absolute;
+	bottom: 3px; left: 8px;
+	font-weight: 700;
+	color: var(--White);
+}
+
+.client-status.waiting .status-icon { color: var(--Yellow) !important; }
+.client-status.active .status-icon { color: var(--Green) !important; }
+.client-status.not .status-icon { color: var(--Red) !important; }

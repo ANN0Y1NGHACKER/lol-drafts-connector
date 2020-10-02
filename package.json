@@ -1,0 +1,25 @@
+{
+	"name": "lol-drafts-connector",
+	"version": "0.0.1",
+	"description": "Connect League Client to LoL Drafts",
+	"author": "Taimoor Tariq",
+	"license": "ISC",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"build": "electron-packager . lol-drafts-connector --icon 'src/assets/icon.ico' --asar --overwrite --platform win32 --arch x64 --out dist/",
+		"setup": "electron-installer-windows --src dist/lol-drafts-connector-win32-x64/ --dest dist/installers/"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"lcu-connector": "^2.1.3",
+		"request": "^2.88.2",
+		"request-promise": "^4.2.6",
+		"socket.io": "^2.3.0"
+	},
+	"devDependencies": {
+		"electron": "^10.1.3",
+		"electron-packager": "^15.1.0",
+		"electron-winstaller": "^4.0.1"
+	}
+}
