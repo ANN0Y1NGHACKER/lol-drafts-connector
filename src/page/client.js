@@ -7,11 +7,14 @@ const Toast = Swal.mixin({
 	showConfirmButton: false,
 	timer: 2000,
 	target: document.getElementById('app-container')
-	// timerProgressBar: true,
 })
 
 function quitapp() {socket.emit('quit')}
 function miniapp() {socket.emit('minimize')}
+function openConfig(e) {
+	socket.emit('openConfig');
+	e.disabled = true;
+}
 
 function openDiscord() {
 	Toast.fire({
@@ -19,6 +22,8 @@ function openDiscord() {
 		title: 'Coming Soon'
 	})
 }
+
+socket.on('enable-config', () => {document.getElementById('config-btn').disabled = false});
 
 socket.on('update-status', s => {
 	let statIcon = document.getElementById('client-status');

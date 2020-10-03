@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Connect League Client to LoL Drafts",
 	"author": "Taimoor Tariq",
-	"license": "ISC",
+	"license": "MIT",
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",

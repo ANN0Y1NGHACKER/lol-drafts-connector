@@ -31,16 +31,19 @@
 			<div class="app-container">
 
 				<div class="info-section">
-					<h1>TEST</h1>
+					<h1 style="text-align: center;">LOGO <br> PLACEHOLDER</h1>
 
-					<label for="overlay-url" style="color: #FFF;">Link to overlay</label>
+					<br>
+
+					<label for="overlay-url">Link to overlay</label>
 					<div class="input-group">
 						<input type="text" id="overlay-url">
-						<div class="input-group-append">
-							<button class="btn" type="button"><i class="far fa-copy"></i></button>
-							<button class="btn" type="button"><i class="fas fa-external-link-alt"></i></button>
-						</div>
+						<button class="btn" type="button"><i class="far fa-copy"></i></button>
+						<button class="btn" type="button"><i class="fas fa-external-link-alt"></i></button>
 					</div>
+
+					<button class="btn">CHOOSE LAYOUT</button>
+					<button id="config-btn" class="btn" style="float: right;" onclick="openConfig(this)">OPEN CONFIG</button>
 				</div>
 				
 
@@ -48,6 +51,7 @@
 				<p id="client-status" class="client-status waiting"><span class="status-icon"><i class="fas fa-circle"></i></span> <span id="status-text">Waiting for connection</span></p>
 			</div>
 		</div>
+
 
 		<!--====================================================
 			JavaScript Files

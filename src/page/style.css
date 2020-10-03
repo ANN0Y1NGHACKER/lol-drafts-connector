@@ -16,26 +16,17 @@
 	--DarkPurple: #7f5ebd;
 }
 
-.btn {
-	color: var(--White);
-	background: var(--Purple);
-	border: none;
-	padding: 10px;
-}
-.btn:hover {
-	background: var(--DarkPurple);
-}
-
 *:focus {
     outline: none;
 }
 
 body {
-	color: var(--White);
 	font-family: Exo;
 	padding: 0px;
+	user-select: none;
 }
 
+.config-bg,
 .app-bg {
 	position: fixed;
 	top: 0; left: 0;
@@ -43,6 +34,12 @@ body {
 	border-radius: 10px;
 	overflow: hidden;
 	background: var(--Black);
+	color: var(--White);
+}
+
+.config-bg {
+	background: var(--White);
+	color: var(--Black);
 }
 
 .titlebar {
@@ -57,6 +54,10 @@ body {
 	top: 0; left: 0;
 	width: calc(100% - 115px); height: 33px;
 	-webkit-app-region: drag;
+}
+
+.config-bg .titlebar-drag {
+	width: calc(100% - 45px); height: 33px;
 }
 
 .title-btn {
@@ -91,6 +92,10 @@ body {
 	font-weight: 700;
 }
 
+.config-bg .app-title {
+	left: 18px;
+}
+
 .app-container {
 	position: absolute;
 	top: 33px; left: 0px;
@@ -118,3 +123,40 @@ body {
 .client-status.waiting .status-icon { color: var(--Yellow) !important; }
 .client-status.active .status-icon { color: var(--Green) !important; }
 .client-status.not .status-icon { color: var(--Red) !important; }
+
+.input-group {
+	display: flex;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.input-group input {
+	width: 100%;
+	padding: 10px;
+}
+
+.input-group button {
+	margin: 0px;
+	width: 60px;
+	border-radius: 0px;
+}
+.input-group button:hover { background: var(--DarkPurple); }
+.input-group input, .input-group button { border: none; }
+
+.btn {
+	color: var(--White);
+	background: var(--Purple);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	margin: 20px 0px;
+	border-radius: 10px;
+	width: 232px;
+	font-weight: 700;
+}
+.btn:hover { background: var(--DarkPurple); }
+.btn:disabled {
+	cursor: not-allowed;
+	background: var(--DarkPurple);
+}

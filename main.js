@@ -10,13 +10,12 @@ function createWindow () {
 		transparent: true, 
 		frame: false,
 		resizable: false,
-		icon: `${__dirname}/src/assets/icon.ico`
-		// backgroundColor: '#202020'
-	})
+		icon: `${__dirname}/src/assets/icon.ico`,
+		maximizable: false
+	});
 
 	global.mainWindow = mainWindow;
 
-	// mainWindow.loadURL('http://localhost:8999/');
 	mainWindow.loadFile('./src/loading.html');
 	mainWindow.setMenu(null);
 
@@ -45,10 +44,39 @@ setTimeout(() => {
 	global.mainWindow.loadURL('http://localhost:8999/');
 }, 3000);
 
-exports.quit = () => {
-	app.quit();
+
+exports.openConfig = () => {
+	let pos = global.mainWindow.getBounds();
+	const configMenu = new BrowserWindow({
+		x: pos.x + pos.width + 20,
+		y: pos.y,
+		width: 400,
+		height: 550,
+		webPreferences: {
+			nodeIntegration: true
+		},
+		parent: mainWindow,
+		transparent: true, 
+		frame: false,
+		resizable: false,
+		icon: `${__dirname}/src/assets/icon.ico`,
+		maximizable: false
+	});
+	
+	global.configMenu = configMenu;
+
+	configMenu.loadURL('http://localhost:8999/config');
+	configMenu.setMenu(null);
+}
+
+exports.closeConfig = () => {
+	global.configMenu.close();
 }
 
 exports.minimize = () => {
 	global.mainWindow.minimize();
+}
+
+exports.quit = () => {
+	app.quit();
 }

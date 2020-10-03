@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LoL Drafts</title>
+
+		<!--====================================================
+			Style Files
+		=====================================================-->
+		<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="https://kit.fontawesome.com/7e8647c319.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="config-bg">
+			<div class="titlebar">
+				<button class="title-btn close" onclick="closeConfig()"><i class="fas fa-times"></i></button>
+
+				<span class="app-title">LoL Drafts - Overlay Config</span>
+				<div class="titlebar-drag"></div>
+			</div>
+	
+			<div class="app-container">
+
+			</div>
+		</div>
+
+		<!--====================================================
+			JavaScript Files
+        =====================================================-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="config_client.js"></script>
+
+	</body>
+</html>

@@ -1,4 +1,5 @@
 const main = require('../main');
+const request = require('request-promise');
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
@@ -10,6 +11,10 @@ app.get('/', (req, res) => {
 	res.sendFile(`${__dirname}/page/index.html`);
 });
 
+app.get('/config', (req, res) => {
+	res.sendFile(`${__dirname}/page/config.html`);
+});
+
 app.get('/style.css', (req, res) => {
 	res.sendFile(`${__dirname}/page/style.css`);
 });
@@ -18,12 +23,25 @@ app.get('/client.js', (req, res) => {
 	res.sendFile(`${__dirname}/page/client.js`);
 });
 
+app.get('/config_client.js', (req, res) => {
+	res.sendFile(`${__dirname}/page/config_client.js`);
+});
+
 io.on('connection', function(socket) {
 	console.log(`  -> ${socket.id} connected`);
 	socket.emit('update-status', connectionStatus);
 
 	socket.on('minimize', () => {
 		main.minimize();
+	});
+
+	socket.on('openConfig', () => {
+		main.openConfig();
+	});
+
+	socket.on('closeConfig', () => {
+		io.emit('enable-config');
+		main.closeConfig();
 	});
 
 	socket.on('quit', () => {
