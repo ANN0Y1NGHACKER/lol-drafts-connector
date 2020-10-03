@@ -15,7 +15,8 @@
 		"lcu-connector": "^2.1.3",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.6",
-		"socket.io": "^2.3.0"
+		"socket.io": "^2.3.0",
+		"sweetalert2": "^10.3.5"
 	},
 	"devDependencies": {
 		"electron": "^10.1.3",

@@ -17,9 +17,20 @@ function openConfig(e) {
 }
 
 function openDiscord() {
-	Toast.fire({
+	Swal.fire({
 		icon: 'info',
-		title: 'Coming Soon'
+		title: 'COMING SOON',
+		showConfirmButton: false,
+		timer: 1000
+	})
+}
+
+function chooseLayout() {
+	Swal.fire({
+		icon: 'info',
+		title: 'COMING SOON',
+		showConfirmButton: false,
+		timer: 1000
 	})
 }
 
@@ -34,6 +45,11 @@ socket.on('update-status', s => {
 	statIcon.classList.remove("waiting");
 
 	switch (s) {
+		case "champselect":
+			statIcon.classList.add("active");
+			statText.innerHTML = "Client Connected - In Champ Select";
+			break;
+
 		case "connected":
 			statIcon.classList.add("active");
 			statText.innerHTML = "Client Connected";

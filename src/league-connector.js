@@ -68,7 +68,7 @@ connector.on('connect', async (data) => {
 				for (var i=0; i<info.bans.myTeamBans.length; i++) team1[5][i] = info.bans.myTeamBans[i];
 				for (var i=0; i<info.bans.theirTeamBans.length; i++) team2[5][i] = info.bans.theirTeamBans[i];
 
-				let finalData = {
+				global.finalData = {
 					actions: info.actions,
 					timer: info.timer,
 					team1: {
@@ -136,8 +136,20 @@ connector.on('connect', async (data) => {
 							champSkinID: team2[4].skinn
 						},
 						bans: team2[5]
-					}
+					},
+					members: []
 				};
+
+				requestPromise({
+					strictSSL: false,
+					url: `https://${username}:${password}@${address}:${port}/lol-lobby/v2/lobby/members`
+				})
+				.then(body => {
+					const info = JSON.parse(body);
+					if (info) {
+						global.finalData.members = info;
+					}
+				}).catch(() => {});
 			}
 				
 		}).catch(() => {
@@ -147,11 +159,13 @@ connector.on('connect', async (data) => {
 
 		if (champSelectStart) {
 			console.log("  Champ Select Started.");
+			server.connectionUpdate("champselect");
 			champSelectStart = false;
 		}
 
 		if (champSelectEnd) {
 			console.log("  Champ Select Ended.");
+			server.connectionUpdate("connected");
 			champSelectEnd = false;
 		}
 	}, 1000)

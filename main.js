@@ -46,10 +46,10 @@ setTimeout(() => {
 
 
 exports.openConfig = () => {
-	let pos = global.mainWindow.getBounds();
+	// let pos = global.mainWindow.getBounds();
 	const configMenu = new BrowserWindow({
-		x: pos.x + pos.width + 20,
-		y: pos.y,
+		// x: pos.x + pos.width + 20,
+		// y: pos.y,
 		width: 400,
 		height: 550,
 		webPreferences: {

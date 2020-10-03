@@ -7,15 +7,14 @@
 		<!--====================================================
 			Style Files
 		=====================================================-->
-		<link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-
+		<link rel="icon" href="icon.png" sizes="48x48">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="style.css">
 
 		<script src="https://kit.fontawesome.com/7e8647c319.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<div class="app-bg">
+		<div id="app-bg" class="app-bg">
 			<div class="titlebar">
 				<button class="title-btn close" onclick="quitapp()"><i class="fas fa-times"></i></button>
 				<button class="title-btn mini" onclick="miniapp()"><i class="fas fa-window-minimize"></i></button>
@@ -42,7 +41,7 @@
 						<button class="btn" type="button"><i class="fas fa-external-link-alt"></i></button>
 					</div>
 
-					<button class="btn">CHOOSE LAYOUT</button>
+					<button class="btn" onclick="chooseLayout()">CHOOSE LAYOUT</button>
 					<button id="config-btn" class="btn" style="float: right;" onclick="openConfig(this)">OPEN CONFIG</button>
 				</div>
 				
@@ -58,7 +57,12 @@
         =====================================================-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/dark/dark.min.css"> -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/borderless/borderless.min.css">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/wordpress-admin/wordpress-admin.min.css"> -->
 		<script src="/socket.io/socket.io.js"></script>
+		
 		<script src="client.js"></script>
 
 	</body>

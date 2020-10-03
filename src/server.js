@@ -27,6 +27,10 @@ app.get('/config_client.js', (req, res) => {
 	res.sendFile(`${__dirname}/page/config_client.js`);
 });
 
+app.get('/icon.png', (req, res) => {
+	res.sendFile(`${__dirname}/assets/icon.png`);
+});
+
 io.on('connection', function(socket) {
 	console.log(`  -> ${socket.id} connected`);
 	socket.emit('update-status', connectionStatus);
