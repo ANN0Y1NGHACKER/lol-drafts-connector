@@ -5,9 +5,25 @@ try {
 const Toast = Swal.mixin({
 	toast: true,
 	showConfirmButton: false,
-	timer: 2000,
-	target: document.getElementById('app-container')
+	target: document.getElementById('app-container'),
+	position: 'bottom',
+	timer: 1000
 })
+
+var room;
+
+function copyLink() {
+	let copyText = document.getElementById('overlay-url');
+	copyText.select();
+	copyText.setSelectionRange(0, 99999);
+	document.execCommand("copy");
+	copyText.blur();
+
+	Toast.fire({
+		title: 'Copied Text'
+	})
+}
+function openRoom() {socket.emit('openBrowser', document.getElementById('overlay-url').value, "_blank")}
 
 function quitapp() {socket.emit('quit')}
 function miniapp() {socket.emit('minimize')}
@@ -17,21 +33,32 @@ function openConfig(e) {
 }
 
 function openDiscord() {
-	Swal.fire({
-		icon: 'info',
-		title: 'COMING SOON',
-		showConfirmButton: false,
-		timer: 1000
+	Toast.fire({
+		title: 'COMING SOON'
 	})
 }
 
 function chooseLayout() {
-	Swal.fire({
-		icon: 'info',
-		title: 'COMING SOON',
-		showConfirmButton: false,
-		timer: 1000
+	Toast.fire({
+		title: 'COMING SOON'
 	})
+}
+
+function getRoom() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let res = JSON.parse(this.response);
+
+			if (res[0] == "SUCCESS") {
+				document.getElementById('overlay-url').value = `http://www.loldrafts.com/pick?room=${res[1]}`;
+				room = res[1];
+				socket.emit('setRoom', room)
+			}
+		}
+	};
+	xhttp.open("POST", "http://www.loldrafts.com/makeRoom", true);
+	xhttp.send();
 }
 
 socket.on('enable-config', () => {document.getElementById('config-btn').disabled = false});

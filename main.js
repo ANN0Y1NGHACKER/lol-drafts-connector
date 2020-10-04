@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, shell} = require('electron');
 
 function createWindow () {
 	const mainWindow = new BrowserWindow({
@@ -67,6 +67,19 @@ exports.openConfig = () => {
 
 	configMenu.loadURL('http://localhost:8999/config');
 	configMenu.setMenu(null);
+}
+
+exports.openInBrowser = (url) => {
+	const overlayWindow = new BrowserWindow({
+		width: 600,
+		height: 400,
+		webPreferences: {
+			nodeIntegration: true
+		},
+		icon: `${__dirname}/src/assets/icon.ico`
+	});
+	overlayWindow.loadURL(url);
+	overlayWindow.setMenu(null);
 }
 
 exports.closeConfig = () => {

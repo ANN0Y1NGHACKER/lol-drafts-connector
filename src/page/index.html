@@ -13,7 +13,7 @@
 
 		<script src="https://kit.fontawesome.com/7e8647c319.js" crossorigin="anonymous"></script>
 	</head>
-	<body>
+	<body onload="getRoom()">
 		<div id="app-bg" class="app-bg">
 			<div class="titlebar">
 				<button class="title-btn close" onclick="quitapp()"><i class="fas fa-times"></i></button>
@@ -37,8 +37,8 @@
 					<label for="overlay-url">Link to overlay</label>
 					<div class="input-group">
 						<input type="text" id="overlay-url">
-						<button class="btn" type="button"><i class="far fa-copy"></i></button>
-						<button class="btn" type="button"><i class="fas fa-external-link-alt"></i></button>
+						<button class="btn" type="button" onclick="copyLink()"><i class="far fa-copy"></i></button>
+						<button class="btn" type="button" onclick="openRoom()"><i class="fas fa-external-link-alt"></i></button>
 					</div>
 
 					<button class="btn" onclick="chooseLayout()">CHOOSE LAYOUT</button>
@@ -59,11 +59,12 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		
 		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/dark/dark.min.css"> -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/borderless/borderless.min.css">
 		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/wordpress-admin/wordpress-admin.min.css"> -->
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/themes@4.0.0/borderless/borderless.min.css"> -->
+		<!-- <link rel="stylesheet" href="../assets/popup.css"> -->
+		<link rel="stylesheet" href="popup.css">
 		<script src="/socket.io/socket.io.js"></script>
 		
 		<script src="client.js"></script>
-
 	</body>
 </html>

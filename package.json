@@ -8,11 +8,14 @@
 	"scripts": {
 		"start": "electron .",
 		"build": "electron-packager . lol-drafts-connector --icon 'src/assets/icon.ico' --asar --overwrite --platform win32 --arch x64 --out dist/",
-		"setup": "electron-installer-windows --src dist/lol-drafts-connector-win32-x64/ --dest dist/installers/"
+		"setup": "electron-installer-windows --src dist/lol-drafts-connector-win32-x64/ --dest dist/installers/",
+		"win": "node dist/install.js"
 	},
 	"dependencies": {
 		"express": "^4.17.1",
+		"innosetup-compiler-cn": "^1.0.6",
 		"lcu-connector": "^2.1.3",
+		"querystring": "^0.2.0",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.6",
 		"socket.io": "^2.3.0",

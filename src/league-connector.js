@@ -5,6 +5,84 @@ const requestPromise = require('request-promise');
 const server = require('./server');
 
 let connectFlag = true, champSelectStart = false, champSelect = false, champSelectEnd = false;
+global.finalData = {
+	team1: {
+		player1: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player2: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player3: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player4: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player5: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		bans: ["", "", "", "", ""]
+	},
+	team2: {
+		player1: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player2: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player3: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player4: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		player5: {
+			summonerId: "",
+			summonerName: "",
+			champID: "",
+			summonerSpellID: ["", ""],
+			champSkinID: ""
+		},
+		bans: ["", "", "", "", ""]
+	}
+};
 
 setTimeout(()=>{
 	if (connectFlag) {
@@ -74,30 +152,35 @@ connector.on('connect', async (data) => {
 					team1: {
 						player1: {
 							summonerId: team1[0].summonerID,
+							summonerName: "",
 							champID: team1[0].champ,
 							summonerSpellID: team1[0].spell,
 							champSkinID: team1[0].skinn
 						},
 						player2: {
 							summonerId: team1[1].summonerID,
+							summonerName: "",
 							champID: team1[1].champ,
 							summonerSpellID: team1[1].spell,
 							champSkinID: team1[1].skinn
 						},
 						player3: {
 							summonerId: team1[2].summonerID,
+							summonerName: "",
 							champID: team1[2].champ,
 							summonerSpellID: team1[2].spell,
 							champSkinID: team1[2].skinn
 						},
 						player4: {
 							summonerId: team1[3].summonerID,
+							summonerName: "",
 							champID: team1[3].champ,
 							summonerSpellID: team1[3].spell,
 							champSkinID: team1[3].skinn
 						},
 						player5: {
 							summonerId: team1[4].summonerID,
+							summonerName: "",
 							champID: team1[4].champ,
 							summonerSpellID: team1[4].spell,
 							champSkinID: team1[4].skinn
@@ -107,37 +190,41 @@ connector.on('connect', async (data) => {
 					team2: {
 						player1: {
 							summonerId: team2[0].summonerID,
+							summonerName: "",
 							champID: team2[0].champ,
 							summonerSpellID: team2[0].spell,
 							champSkinID: team2[0].skinn
 						},
 						player2: {
 							summonerId: team2[1].summonerID,
+							summonerName: "",
 							champID: team2[1].champ,
 							summonerSpellID: team2[1].spell,
 							champSkinID: team2[1].skinn
 						},
 						player3: {
 							summonerId: team2[2].summonerID,
+							summonerName: "",
 							champID: team2[2].champ,
 							summonerSpellID: team2[2].spell,
 							champSkinID: team2[2].skinn
 						},
 						player4: {
 							summonerId: team2[3].summonerID,
+							summonerName: "",
 							champID: team2[3].champ,
 							summonerSpellID: team2[3].spell,
 							champSkinID: team2[3].skinn
 						},
 						player5: {
 							summonerId: team2[4].summonerID,
+							summonerName: "",
 							champID: team2[4].champ,
 							summonerSpellID: team2[4].spell,
 							champSkinID: team2[4].skinn
 						},
 						bans: team2[5]
-					},
-					members: []
+					}
 				};
 
 				requestPromise({
@@ -147,7 +234,24 @@ connector.on('connect', async (data) => {
 				.then(body => {
 					const info = JSON.parse(body);
 					if (info) {
-						global.finalData.members = info;
+						for (var i in info) {
+							// console.log(`${info[i].summonerId} - ${info[i].summonerName}`);
+							if (info[i].teamId == 100) {
+								for (var p in global.finalData.team1) {
+									if (global.finalData.team1[p].summonerId == info[i].summonerId) global.finalData.team1[p].summonerName = info[i].summonerName
+								}
+							}
+							else if (info[i].teamId == 200) {
+								for (var p in global.finalData.team2) {
+									if (global.finalData.team2[p].summonerId == info[i].summonerId) global.finalData.team2[p].summonerName = info[i].summonerName
+								}
+							}
+						}
+
+						// let sendData = {
+						// 	"room": global.room,
+						// 	"data": global.finalData
+						// };
 					}
 				}).catch(() => {});
 			}
