@@ -16,6 +16,22 @@
 	--DarkPurple: #7f5ebd;
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+
 *:focus {
     outline: none;
 }
@@ -43,58 +59,61 @@ body {
 }
 
 .titlebar {
-	position: absolute;
-	top: 0; left: 0;
-	width: 100%; height: 33px;
+	height: 33px; width: 100%;
+}
+.titlebar td:last-of-type {
+	padding-right: 10px;
+}
+.config-bg .titlebar {
 	background: var(--Black);
 }
 
 .titlebar-drag {
-	position: absolute;
-	top: 0; left: 0;
-	width: calc(100% - 115px); height: 33px;
+	width: 100%;
 	-webkit-app-region: drag;
 }
 
-.config-bg .titlebar-drag {
-	width: calc(100% - 45px); height: 33px;
-}
-
 .title-btn {
-	position: absolute;
 	font-size: 14px;
 	background: none;
 	border: none;
 	color: var(--White);
-	width: 32px;
 	cursor: pointer;
 }
 
-.title-btn.mini { top: 5px; right: 38px; }
-.title-btn.close { top: 6px; right: 8px; }
-.title-btn.discord { top: 3px; right: 74px; }
 .discord-btn { fill: var(--White); }
+.title-btn.mini { padding-top: 3px;}
+.title-btn.close { padding-top: 3px;}
+.title-btn.discord { padding-top: 5px;}
+
 
 .title-btn.mini:hover { color: var(--LightOrange); }
 .title-btn.close:hover { color: var(--Red); }
 .title-btn.discord:hover .discord-btn { fill: var(--Purple); }
 
-.title-icon {
+.app-title img {
 	position: absolute;
-	top: 6px; left: 10px;
+	top: 8px; left: 10px;
 	width: 18px;
 }
 
-.app-title {
+.app-title span {
 	position: absolute;
-	top: 5px; left: 35px;
+	top: 7px; left: 35px;
 	color: var(--White);
 	font-weight: 700;
+	font-size: 13pt;
 }
 
-.config-bg .app-title {
-	left: 18px;
+.tab {
+	background: #AAA;
+	padding: 5px 15px;
+	transform: translate(0, 2px);
+	border-radius: 10px 10px 0px 0px;
+	font-weight: 700;
+	cursor: pointer;
 }
+.tab.active { background: var(--White); }
 
 .app-container {
 	position: absolute;
@@ -102,10 +121,10 @@ body {
 	width: 100%; height: calc(100% - 20px);
 	overflow: hidden;
 }
+.app-container.config { overflow-y: scroll; }
 
-.info-section {
-	padding: 20px 60px 0px;
-}
+.info-section { padding: 20px 60px 0px; }
+.app-container.config .info-section { padding: 20px 60px 40px; }
 
 #current-version {
 	position: absolute;
@@ -159,4 +178,81 @@ body {
 .btn:disabled {
 	cursor: not-allowed;
 	background: var(--DarkPurple);
+}
+
+.config-input-group {
+	display: flex;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 10px 0px 20px;
+}
+
+.config-input-group input {
+	width: 100%;
+	padding: 10px;
+	box-shadow: inset 0 0 4px var(--Grey);
+}
+
+.config-input-group input[type="color"] {
+	width: 60px; height: 35px;
+	padding: 5px 10px;
+}
+.config-input-group input.cf { border-radius: 10px; }
+.config-input-group input.cl { border-radius: 10px 0px 0px 10px; }
+.config-input-group input.cr { border-radius: 0px 10px 10px 0px; }
+
+.config-input-group button:not(.save-btn) {
+	margin: 0px;
+	width: 80px;
+	border-radius: 0px;
+}
+.config-input-group button:hover { background: var(--DarkPurple); }
+.config-input-group input, .input-group button { border: none; }
+
+.save-btn {
+	width: 100%;
+	height: 35px;
+	color: var(--White);
+	background: var(--Purple);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	margin: 20px 0px;
+	border-radius: 10px;
+	font-weight: 700;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    color: var(--White);
+	background: var(--Purple);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	font-weight: 700;
+	width: 60px;
+	text-align: center;
+}
+.inputfile + label:hover { background: var(--DarkPurple); }
+
+fieldset {
+	border-radius: 10px;
+	width: calc(87% + 2px);
+	padding: 10px 20px;
+	margin-top: 20px;
+}
+
+legend { padding: 0px 10px; }
+
+.app-container.config .btn {
+	width: calc(100% - 4px);
+	margin: 10px 0px;
 }

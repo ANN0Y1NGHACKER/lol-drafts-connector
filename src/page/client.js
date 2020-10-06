@@ -24,6 +24,7 @@ function copyLink() {
 	})
 }
 function openRoom() {socket.emit('openBrowser', document.getElementById('overlay-url').value, "_blank")}
+function getRoom() {socket.emit('get-room')}
 
 function quitapp() {socket.emit('quit')}
 function miniapp() {socket.emit('minimize')}
@@ -44,22 +45,10 @@ function chooseLayout() {
 	})
 }
 
-function getRoom() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			let res = JSON.parse(this.response);
-
-			if (res[0] == "SUCCESS") {
-				document.getElementById('overlay-url').value = `http://www.loldrafts.com/pick?room=${res[1]}`;
-				room = res[1];
-				socket.emit('setRoom', room)
-			}
-		}
-	};
-	xhttp.open("POST", "http://www.loldrafts.com/makeRoom", true);
-	xhttp.send();
-}
+socket.on('set-room', r => {
+	room = r;
+	document.getElementById('overlay-url').value = `http://www.loldrafts.com/pick?room=${r}`;
+});
 
 socket.on('enable-config', () => {document.getElementById('config-btn').disabled = false});
 

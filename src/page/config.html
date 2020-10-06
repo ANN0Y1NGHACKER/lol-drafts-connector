@@ -15,16 +15,82 @@
 	</head>
 	<body>
 		<div class="config-bg">
-			<div class="titlebar">
-				<button class="title-btn close" onclick="closeConfig()"><i class="fas fa-times"></i></button>
+			<table class="titlebar">
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td class="tab active">
+						Overlay
+					</td>
+					<!-- <td>&nbsp;</td>
+					<td class="tab">
+						Tab2
+					</td> -->
 
-				<span class="app-title">LoL Drafts - Overlay Config</span>
-				<div class="titlebar-drag"></div>
-			</div>
+					<td class="titlebar-drag"></td>
+
+					<td class="title-btn close">
+						<button class="title-btn close" onclick="closeConfig()"><i class="fas fa-times"></i></button>
+					</td>
+				</tr>
+			</table>
 	
-			<div class="app-container">
+			<div class="app-container config">
+				<div id="overlay-config-section">
+					<div style="display: none;">
+						<input type="text" id="logo_url">
+						<input type="text" id="team1_logo_url">
+						<input type="text" id="team2_logo_url">
+					</div>
+	
+					<div class="info-section">
+						<label for="logo_inp">Logo</label>
+						<div class="config-input-group">
+							<input type="text" id="logo_inp" class="cl" onkeyup="updateTextbox(this, 'logo_url')">
+							<input type="file" id="logo_img" accept="image/*" class="inputfile" onchange="uploadLogo(this, 'logo_inp', 'logo_url')">
+							<label for="logo_img"><i class="fas fa-upload"></i></label>
+						</div>
 
-			</div>
+						<fieldset>
+							<legend>Team 1:</legend>
+							<label for="team1_name">Name</label>
+							<div class="config-input-group">
+								<input id="team1_name" type="text" class="cl">
+								<input id="team1_color" type="color" class="cr">
+							</div>
+	
+							<label for="team1_logo_inp">Logo</label>
+							<div class="config-input-group">
+								<input type="text" id="team1_logo_inp" class="cl" onkeyup="updateTextbox(this, 'team1_logo_url')">
+								<input type="file" id="team1_logo_img" accept="image/*" class="inputfile" onchange="uploadLogo(this, 'team1_logo_inp', 'team1_logo_url')">
+								<label for="team1_logo_img"><i class="fas fa-upload"></i></label>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Team 2:</legend>
+							<label for="team2_name">Name</label>
+							<div class="config-input-group">
+								<input id="team2_name" type="text" class="cl">
+								<input id="team2_color" type="color" class="cr">
+							</div>
+	
+							<label for="team2_logo_inp">Logo</label>
+							<div class="config-input-group">
+								<input type="text" id="team2_logo_inp" class="cl" onkeyup="updateTextbox(this, 'team2_logo_url')">
+								<input type="file" id="team2_logo_img" accept="image/*" class="inputfile" onchange="uploadLogo(this, 'team2_logo_inp', 'team2_logo_url')">
+								<label for="team2_logo_img"><i class="fas fa-upload"></i></label>
+							</div>
+						</fieldset>
+
+						<div class="config-input-group">
+						</div>
+
+						<button class="btn" type="button" onclick="chooseLayout()">CHOOSE OVERLAY</button>
+						<button class="btn" type="button" onclick="saveInfo()">SAVE</button>
+					</div>
+
+				</div>
+			</div>		
 		</div>
 
 		<!--====================================================
@@ -33,6 +99,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" href="popup.css">
 		<script src="config_client.js"></script>
 
 	</body>

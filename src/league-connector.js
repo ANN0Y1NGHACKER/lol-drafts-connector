@@ -10,6 +10,8 @@ global.finalData = {
 		player1: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -17,6 +19,8 @@ global.finalData = {
 		player2: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -24,6 +28,8 @@ global.finalData = {
 		player3: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -31,6 +37,8 @@ global.finalData = {
 		player4: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -38,6 +46,8 @@ global.finalData = {
 		player5: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -48,6 +58,8 @@ global.finalData = {
 		player1: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -55,6 +67,8 @@ global.finalData = {
 		player2: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -62,6 +76,8 @@ global.finalData = {
 		player3: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -69,6 +85,8 @@ global.finalData = {
 		player4: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -76,6 +94,8 @@ global.finalData = {
 		player5: {
 			summonerId: "",
 			summonerName: "",
+			summonerIconId: "",
+			summonerLevel: "",
 			champID: "",
 			summonerSpellID: ["", ""],
 			champSkinID: ""
@@ -153,6 +173,8 @@ connector.on('connect', async (data) => {
 						player1: {
 							summonerId: team1[0].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team1[0].champ,
 							summonerSpellID: team1[0].spell,
 							champSkinID: team1[0].skinn
@@ -160,6 +182,8 @@ connector.on('connect', async (data) => {
 						player2: {
 							summonerId: team1[1].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team1[1].champ,
 							summonerSpellID: team1[1].spell,
 							champSkinID: team1[1].skinn
@@ -167,6 +191,8 @@ connector.on('connect', async (data) => {
 						player3: {
 							summonerId: team1[2].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team1[2].champ,
 							summonerSpellID: team1[2].spell,
 							champSkinID: team1[2].skinn
@@ -174,6 +200,8 @@ connector.on('connect', async (data) => {
 						player4: {
 							summonerId: team1[3].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team1[3].champ,
 							summonerSpellID: team1[3].spell,
 							champSkinID: team1[3].skinn
@@ -181,6 +209,8 @@ connector.on('connect', async (data) => {
 						player5: {
 							summonerId: team1[4].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team1[4].champ,
 							summonerSpellID: team1[4].spell,
 							champSkinID: team1[4].skinn
@@ -191,6 +221,8 @@ connector.on('connect', async (data) => {
 						player1: {
 							summonerId: team2[0].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team2[0].champ,
 							summonerSpellID: team2[0].spell,
 							champSkinID: team2[0].skinn
@@ -198,6 +230,8 @@ connector.on('connect', async (data) => {
 						player2: {
 							summonerId: team2[1].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team2[1].champ,
 							summonerSpellID: team2[1].spell,
 							champSkinID: team2[1].skinn
@@ -205,6 +239,8 @@ connector.on('connect', async (data) => {
 						player3: {
 							summonerId: team2[2].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team2[2].champ,
 							summonerSpellID: team2[2].spell,
 							champSkinID: team2[2].skinn
@@ -212,6 +248,8 @@ connector.on('connect', async (data) => {
 						player4: {
 							summonerId: team2[3].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team2[3].champ,
 							summonerSpellID: team2[3].spell,
 							champSkinID: team2[3].skinn
@@ -219,6 +257,8 @@ connector.on('connect', async (data) => {
 						player5: {
 							summonerId: team2[4].summonerID,
 							summonerName: "",
+							summonerIconId: "",
+							summonerLevel: "",
 							champID: team2[4].champ,
 							summonerSpellID: team2[4].spell,
 							champSkinID: team2[4].skinn
@@ -235,23 +275,25 @@ connector.on('connect', async (data) => {
 					const info = JSON.parse(body);
 					if (info) {
 						for (var i in info) {
-							// console.log(`${info[i].summonerId} - ${info[i].summonerName}`);
 							if (info[i].teamId == 100) {
 								for (var p in global.finalData.team1) {
-									if (global.finalData.team1[p].summonerId == info[i].summonerId) global.finalData.team1[p].summonerName = info[i].summonerName
+									if (global.finalData.team1[p].summonerId == info[i].summonerId) {
+										global.finalData.team1[p].summonerName = info[i].summonerName
+										global.finalData.team1[p].summonerIconId = info[i].summonerIconId
+										global.finalData.team1[p].summonerLevel = info[i].summonerLevel
+									}
 								}
 							}
 							else if (info[i].teamId == 200) {
 								for (var p in global.finalData.team2) {
-									if (global.finalData.team2[p].summonerId == info[i].summonerId) global.finalData.team2[p].summonerName = info[i].summonerName
+									if (global.finalData.team2[p].summonerId == info[i].summonerId) {
+										global.finalData.team2[p].summonerName = info[i].summonerName
+										global.finalData.team2[p].summonerIconId = info[i].summonerIconId
+										global.finalData.team2[p].summonerLevel = info[i].summonerLevel
+									}
 								}
 							}
 						}
-
-						// let sendData = {
-						// 	"room": global.room,
-						// 	"data": global.finalData
-						// };
 					}
 				}).catch(() => {});
 			}

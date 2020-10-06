@@ -50,13 +50,13 @@ exports.openConfig = () => {
 	const configMenu = new BrowserWindow({
 		// x: pos.x + pos.width + 20,
 		// y: pos.y,
-		width: 400,
-		height: 550,
+		width: 500,
+		height: 600,
 		webPreferences: {
 			nodeIntegration: true
 		},
 		parent: mainWindow,
-		transparent: true, 
+		transparent: true,
 		frame: false,
 		resizable: false,
 		icon: `${__dirname}/src/assets/icon.ico`,
