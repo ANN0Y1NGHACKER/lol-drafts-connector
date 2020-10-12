@@ -6,6 +6,7 @@ const server = require('./server');
 
 let connectFlag = true, champSelectStart = false, champSelect = false, champSelectEnd = false;
 global.finalData = {
+	actions: [{completed:true}],
 	team1: {
 		player1: {
 			summonerId: "",

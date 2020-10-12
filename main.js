@@ -67,6 +67,8 @@ exports.openConfig = () => {
 
 	configMenu.loadURL('http://localhost:8999/config');
 	configMenu.setMenu(null);
+
+	// configMenu.webContents.openDevTools()
 }
 
 exports.openInBrowser = (url) => {

@@ -16,8 +16,10 @@ global.eventInfo = {
 	team1_logo: "",
 	team2_logo: "",
 	event_logo: "",
-	team1_color: "",
-	team2_color: ""
+	team1_color1: "",
+	team2_color1: "",
+	team1_color2: "",
+	team2_color2: ""
 }
 
 app.get('/', (req, res) => {
@@ -53,6 +55,11 @@ server_socket.on('connect', (socket) => {
 	console.log(`  -> connected to server`);
 });
 
+server_socket.on('sendCode', code => { 
+	console.log("STEP 4");
+	console.log(`  Code: ${code}`);
+});
+
 io.on('connection', function(socket) {
 	console.log(`  -> ${socket.id} connected`);
 	socket.join(server_socket.id);
@@ -65,6 +72,10 @@ io.on('connection', function(socket) {
 
 	socket.on('extraInfo', data => {
 		global.eventInfo = data;
+	});
+
+	socket.on('getInfo', () => {
+		socket.emit('setInfo', global.eventInfo);
 	});
 
 	socket.on('minimize', () => {
@@ -82,6 +93,11 @@ io.on('connection', function(socket) {
 	socket.on('closeConfig', () => {
 		io.emit('enable-config');
 		main.closeConfig();
+	});
+
+	socket.on('tourneyCode', () => {
+		console.log("STEP 1");
+		server_socket.emit('makeCode');
 	});
 
 	socket.on('quit', () => {

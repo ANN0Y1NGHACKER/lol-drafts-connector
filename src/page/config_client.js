@@ -11,6 +11,7 @@ const Toast = Swal.mixin({
 })
 
 function closeConfig() {socket.emit('closeConfig')}
+function getInfo() {socket.emit('getInfo')}
 
 function updateTextbox(e, id) { document.getElementById(id).value = e.value; }
 
@@ -18,6 +19,8 @@ function chooseLayout() {
 	Toast.fire({
 		title: 'COMING SOON'
 	})
+
+	socket.emit('tourneyCode');
 }
 
 function saveInfo() {
@@ -27,8 +30,10 @@ function saveInfo() {
 		event_logo: document.getElementById('logo_url').value,
 		team1_logo: document.getElementById('team1_logo_url').value,
 		team2_logo: document.getElementById('team2_logo_url').value,
-		team1_color: document.getElementById('team1_color').value,
-		team2_color: document.getElementById('team2_color').value
+		team1_color1: document.getElementById('team1_color1').value,
+		team2_color1: document.getElementById('team2_color1').value,
+		team1_color2: document.getElementById('team1_color2').value,
+		team2_color2: document.getElementById('team2_color2').value
 	}
 
 	Toast.fire({
@@ -36,6 +41,18 @@ function saveInfo() {
 	})
 	socket.emit('extraInfo', data)
 }
+
+socket.on('setInfo', data => {
+	document.getElementById('team1_name').value = data.team1;
+	document.getElementById('team2_name').value = data.team2;
+	document.getElementById('logo_url').value = data.event_logo;
+	document.getElementById('team1_logo_url').value = data.team1_logo;
+	document.getElementById('team2_logo_url').value = data.team2_logo;
+	document.getElementById('team1_color1').value = data.team1_color1;
+	document.getElementById('team2_color1').value = data.team2_color1;
+	document.getElementById('team1_color2').value = data.team1_color2;
+	document.getElementById('team2_color2').value = data.team2_color2;
+});
 
 function uploadLogo(ele, disp, inp) {
 	const image = ele.files[0];
